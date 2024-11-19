@@ -52,10 +52,16 @@ jobs:
         kubectl set image deployment/wisdom-server wisdom-server=devasheesh22/wisdom-server:v1 --record
         kubectl rollout status deployment/wisdom-server
 
-    - name: Save deployment status
+    # Save Kubernetes deployment status to environment variable
+    - name: Set Kubernetes deployment status in environment
       run: |
-        echo "DEPLOYMENT_STATUS=Deployment completed successfully" >> $GITHUB_STATE  # Saving to GITHUB_STATE file
+        echo "DEPLOYMENT_STATUS=Deployment completed successfully" >> $GITHUB_ENV
 
-    - name: Set output for deployment status
+    # If previously using save-state or set-output, update it like this:
+    - name: Save state (Updated)
       run: |
-        echo "DEPLOYMENT_STATUS=Deployment completed successfully" >>
+        echo "DEPLOYMENT_STATUS=Deployment completed successfully" >> $GITHUB_STATE
+
+    - name: Set output (Updated)
+      run: |
+        echo "DEPLOYMENT_RESULT=success" >> $GITHUB_OUTPUT
