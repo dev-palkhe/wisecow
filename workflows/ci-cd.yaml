@@ -37,6 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+
     - name: Set up kubectl
       uses: azure/setup-kubectl@v1
       with:
@@ -51,4 +52,3 @@ jobs:
       run: |
         kubectl set image deployment/wisdom-server wisdom-server=devasheesh22/wisdom-server:v1 --record
         kubectl rollout status deployment/wisdom-server
-
