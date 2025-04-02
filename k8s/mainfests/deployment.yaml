@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: test
-      image: docker.io/devasheesh22/wisdom-server:v1
-      ports:
-      - containerPort: 4499
+        image: docker.io/devasheesh22/wisecow:v1
+        ports:
+        - containerPort: 4499
 
       
